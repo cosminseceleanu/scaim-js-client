@@ -8,11 +8,12 @@
       "ExportDeclaration": { "multiline": true, "minProperties": 5 }
     }],
     "no-use-before-define": "off",
-    "no-return-await": "off",
     "object-curly-spacing":"off"
   },
   "globals": {
     "window": true,
-    "document": true
+    "document": true,
+    "WebSocket": true,
+    "CustomEvent": true
   }
 }
