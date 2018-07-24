@@ -1,0 +1,7 @@
+target
+tmp
+.history
+/.idea
+/*.iml
+/.idea_modules
+node_modules/

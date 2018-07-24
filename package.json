@@ -1,0 +1,32 @@
+{
+  "name": "scaim-js-client",
+  "version": "1.0.0",
+  "description": "ScaIM JS Client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=development",
+    "build-min": "webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cosminseceleanu/scaim-js-client.git"
+  },
+  "author": "Cosmin Seceleanu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cosminseceleanu/scaim-js-client/issues"
+  },
+  "homepage": "https://github.com/cosminseceleanu/scaim-js-client#readme",
+  "devDependencies": {
+    "webpack": "^4.16.2",
+    "webpack-cli": "^3.1.0",
+    "eslint": "^5.1.0",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-import": "^2.13.0"
+  },
+  "dependencies": {
+    "blueimp-md5": "^2.10.0"
+  }
+}
