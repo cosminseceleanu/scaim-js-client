@@ -1,8 +1,19 @@
 import Connection from './Connection';
 import {Events} from './events';
 import Logger from './Logger';
+import 'whatwg-fetch';
 
 export const Scaim = (() => {
+	const fetchToken = (scaimServerUri, username, password, onTokenFetched, onError) => {
+		fetch(`${scaimServerUri}/users/auth`, {
+			method: 'POST',
+			body: JSON.stringify({username, password}),
+			headers: {'Content-Type': 'application/json'},
+		}).then(response => response.json())
+			.then(token => onTokenFetched(token))
+			.catch(e => onError(e));
+	};
+
 	const connect = (host, token, debug = false) => {
 		const socket = new WebSocket(`ws://${host}/ws?token=${token}`);
 		const connection = new Connection(socket);
@@ -42,7 +53,7 @@ export const Scaim = (() => {
 		document.dispatchEvent(new CustomEvent(name, {detail: data}));
 	};
 
-	return { connect };
+	return { connect, fetchToken };
 })();
 
 export default Scaim;

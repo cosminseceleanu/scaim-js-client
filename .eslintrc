@@ -14,6 +14,7 @@
     "window": true,
     "document": true,
     "WebSocket": true,
-    "CustomEvent": true
+    "CustomEvent": true,
+    "fetch": true
   }
 }
