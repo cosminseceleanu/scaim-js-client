@@ -16,7 +16,7 @@ export const Scaim = (() => {
 
 	const connect = (host, token, debug = false) => {
 		const socket = new WebSocket(`ws://${host}/ws?token=${token}`);
-		const connection = new Connection(socket);
+		const connection = Connection(socket);
 		connection.onEventReceived(broadcastReceivedEventsListener);
 		if (debug) {
 			Logger.attachListeners(connection);
