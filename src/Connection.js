@@ -15,15 +15,17 @@ const Connection = (socket) => {
 	const onReadReceived = listener => document.addEventListener(Events.READ_RECEIVED, listener);
 	const onReadAck = listener => document.addEventListener(Events.READ_ACK, listener);
 
-	const sendMessage = (from, to, data, attributes = {}) => {
-		const message = Message(generateId(from, data), from, to, data, attributes);
+	const sendMessage = (from, to, data, attributes = {}, id = null) => {
+		const msgId = id || generateId(from, data);
+		const message = Message(msgId, from, to, data, attributes);
 		sendEvent(Events.MESSAGE, message);
 
 		return message.id;
 	};
 
-	const sendRead = (from, to, attributes = {}) => {
-		const read = Read(generateId(from, 'read'), from, to, attributes);
+	const sendRead = (from, to, attributes = {}, id = null) => {
+		const readId = id || generateId(from, 'read');
+		const read = Read(readId, from, to, attributes);
 		sendEvent(Events.READ, read);
 
 		return read.id;
@@ -41,6 +43,8 @@ const Connection = (socket) => {
 		return md5(value, Date.now());
 	};
 
+	const disconnect = () => socket.close();
+
 	return {
 		onConnect,
 		onDisconnect,
@@ -52,6 +56,8 @@ const Connection = (socket) => {
 		onReadAck,
 		sendMessage,
 		sendRead,
+		generateId,
+		disconnect,
 	};
 };
 
