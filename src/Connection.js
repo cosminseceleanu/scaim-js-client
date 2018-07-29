@@ -16,21 +16,21 @@ const Connection = (socket) => {
 	const onReadAck = listener => document.addEventListener(Events.READ_ACK, listener);
 
 	const sendMessage = (from, to, data, attributes = {}) => {
-		const message = new Message(generateId(from, data), from, to, data, attributes);
+		const message = Message(generateId(from, data), from, to, data, attributes);
 		sendEvent(Events.MESSAGE, message);
 
 		return message.id;
 	};
 
 	const sendRead = (from, to, attributes = {}) => {
-		const read = new Read(generateId(from, 'read'), from, to, attributes);
+		const read = Read(generateId(from, 'read'), from, to, attributes);
 		sendEvent(Events.READ, read);
 
 		return read.id;
 	};
 
 	const sendEvent = (name, payload) => {
-		const event = new Event(name, payload);
+		const event = Event(name, payload);
 
 		socket.send(JSON.stringify(event));
 	};

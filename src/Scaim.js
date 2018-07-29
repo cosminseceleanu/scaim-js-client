@@ -1,7 +1,6 @@
 import Connection from './Connection';
 import {Events} from './events';
 import Logger from './Logger';
-import 'whatwg-fetch';
 
 export const Scaim = (() => {
 	const fetchToken = (scaimServerUri, username, password, onTokenFetched, onError) => {

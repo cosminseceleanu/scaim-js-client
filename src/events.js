@@ -12,7 +12,7 @@ export const Message = (id, from, to, data, attributes = {}) => ({
 	id,
 	from,
 	to,
-	data,
+	text: data,
 	attributes,
 });
 
