@@ -2,7 +2,7 @@
   "name": "scaim-js-client",
   "version": "1.0.0",
   "description": "ScaIM JS Client",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode=development",
@@ -19,7 +19,13 @@
   },
   "homepage": "https://github.com/cosminseceleanu/scaim-js-client#readme",
   "devDependencies": {
+    "@babel/preset-env": "^7.0.0-beta.55",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-add-module-exports": "^0.3.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
     "eslint": "^5.2.0",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-loader": "^2.0.0",
