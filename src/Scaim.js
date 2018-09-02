@@ -20,7 +20,7 @@ export const Scaim = (() => {
 		if (debug) {
 			Logger.attachListeners(connection);
 		}
-		connection.onPing(payload => connection.sendPong(payload));
+		connection.onPing(event => connection.sendPong(event.detail));
 
 		return connection;
 	};
