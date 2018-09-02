@@ -6,6 +6,8 @@ export const Events = {
 	READ_ACK: 'read.ack',
 	READ_RECEIVED: 'read.received',
 	ERROR: 'error',
+	PING: 'ping',
+	PONG: 'pong',
 };
 
 export const Message = (id, from, to, data, attributes = {}) => ({

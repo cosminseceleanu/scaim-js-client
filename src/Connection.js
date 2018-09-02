@@ -14,6 +14,8 @@ const Connection = (socket) => {
 	const onMessageAck = listener => document.addEventListener(Events.MESSAGE_ACK, listener);
 	const onReadReceived = listener => document.addEventListener(Events.READ_RECEIVED, listener);
 	const onReadAck = listener => document.addEventListener(Events.READ_ACK, listener);
+	const onPing = listener => document.addEventListener(Events.PING, listener);
+
 
 	const sendMessage = (from, to, data, attributes = {}, id = null) => {
 		const msgId = id || generateId(from, data);
@@ -54,8 +56,10 @@ const Connection = (socket) => {
 		onReadReceived,
 		onMessageAck,
 		onReadAck,
+		onPing,
 		sendMessage,
 		sendRead,
+		sendPong: data => sendEvent(Events.PONG, data),
 		generateId,
 		disconnect,
 	};

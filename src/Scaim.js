@@ -20,6 +20,7 @@ export const Scaim = (() => {
 		if (debug) {
 			Logger.attachListeners(connection);
 		}
+		connection.onPing(payload => connection.sendPong(payload));
 
 		return connection;
 	};
@@ -42,6 +43,9 @@ export const Scaim = (() => {
 				break;
 			case Events.ERROR:
 				dispatchEvent(Events.ERROR, payload);
+				break;
+			case Events.PING:
+				dispatchEvent(Events.PING, payload);
 				break;
 			default:
 				throw new Error(`Event of type ${event} is not supported`);
