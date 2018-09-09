@@ -8,6 +8,8 @@ export const Events = {
 	ERROR: 'error',
 	PING: 'ping',
 	PONG: 'pong',
+	SUBSCRIBER_ONLINE: 'subscriber.online',
+	SUBSCRIBER_OFFLINE: 'subscriber.offline',
 };
 
 export const Message = (id, from, to, data, attributes = {}) => ({

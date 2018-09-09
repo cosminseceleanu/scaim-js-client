@@ -41,6 +41,12 @@ export const Scaim = (() => {
 			case Events.READ_ACK:
 				dispatchEvent(Events.READ_ACK, JSON.parse(payload));
 				break;
+			case Events.SUBSCRIBER_ONLINE:
+				dispatchEvent(Events.SUBSCRIBER_ONLINE, JSON.parse(payload));
+				break;
+			case Events.SUBSCRIBER_OFFLINE:
+				dispatchEvent(Events.SUBSCRIBER_OFFLINE, JSON.parse(payload));
+				break;
 			case Events.ERROR:
 				dispatchEvent(Events.ERROR, payload);
 				break;

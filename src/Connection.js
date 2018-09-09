@@ -13,6 +13,12 @@ const Connection = (socket) => {
 	);
 	const onMessageAck = listener => document.addEventListener(Events.MESSAGE_ACK, listener);
 	const onReadReceived = listener => document.addEventListener(Events.READ_RECEIVED, listener);
+	const onSubscriberOnline = (listener) => {
+		document.addEventListener(Events.SUBSCRIBER_ONLINE, listener);
+	};
+	const onSubscriberOffline = (listener) => {
+		document.addEventListener(Events.SUBSCRIBER_OFFLINE, listener);
+	};
 	const onReadAck = listener => document.addEventListener(Events.READ_ACK, listener);
 	const onPing = listener => document.addEventListener(Events.PING, listener);
 
@@ -57,6 +63,8 @@ const Connection = (socket) => {
 		onMessageAck,
 		onReadAck,
 		onPing,
+		onSubscriberOnline,
+		onSubscriberOffline,
 		sendMessage,
 		sendRead,
 		sendPong: data => sendEvent(Events.PONG, data),
