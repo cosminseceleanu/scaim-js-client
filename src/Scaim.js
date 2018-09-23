@@ -35,7 +35,7 @@ export const Scaim = (() => {
 			case Events.MESSAGE_ACK:
 				dispatchEvent(Events.MESSAGE_ACK, JSON.parse(payload));
 				break;
-			case Events.READ:
+			case Events.READ_RECEIVED:
 				dispatchEvent(Events.READ_RECEIVED, JSON.parse(payload));
 				break;
 			case Events.READ_ACK:
